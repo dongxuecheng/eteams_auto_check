@@ -1,60 +1,67 @@
-# eteams_auto_check
-泛微eteams自动打卡签到/签退，自定义位置，微信推送打卡结果
+# E-Teams Auto Check 👨‍💻
 
-## 项目简介
-该项目用于泛微eteams打卡，支持自定义位置经纬度，支持通过GitHub Actions定时运行，并通过爱语飞飞微信推送打卡结果。
+A Python script for automatic check-in/out on E-Teams platform.可自动跳过中国节假日，自定义打卡位置。
 
-## 使用教程
+## Features ✨
 
-### 1. 克隆项目
-首先，克隆该项目到本地：
-```bash
-git clone https://github.com/dongxuecheng/eteams_auto_check.git
-cd eteams_auto_check
+- Automatic daily check-in and check-out 🕒
+- Random time variation (±5 minutes) to simulate human behavior 🎲
+- Cron job scheduling for reliability ⚡
+
+## Setup and Configuration 🛠️
+
+1. Clone this repository
+2. Install required dependencies
+3. Configure your credentials
+4. Set up cron jobs
+
+## Cron Configuration ⏰
+
+Follow these steps to set up automatic scheduling:
+
+1. Open your crontab configuration:
+   ```bash
+   crontab -e
+   ```
+
+2. Add the following lines (adjust paths according to your setup):
+   # Morning check-in (8:25 AM ± 5 minutes)
+   25 8 * * * sleep $((RANDOM % 300)) && cd /path/to/project && python auto_checker.py >> /path/to/project/logs/auto_checker.log 2>&1
+   
+   # Evening check-out (6:10 PM ± 5 minutes)
+   10 18 * * * sleep $((RANDOM % 300)) && cd /path/to/project && python auto_checker.py >> /path/to/project/logs/auto_checker.log 2>&1
+
+3. Save and exit the editor
+   - For vim: Press `ESC`, then type `:wq`
+   - For nano: Press `Ctrl + X`, then `Y`, then `Enter`
+
+4. Verify your cron jobs:
+   ```bash
+   crontab -l
+   ```
+
+The script will now run automatically at specified times.
+
+Note: Ensure the path `/path/to/project` is replaced with your actual project directory path.
 ```
 
-### 2. 安装依赖
-确保你已经安装了Python 3.6或更高版本，然后安装项目依赖：
-```bash
-pip install requests
-```
+## Usage 📝
 
-### 3. 配置参数
-在运行脚本之前，需要配置用户名、密码、打卡地址(填写公司名称)、经纬度(通过地图软件获取)和IYUUAPI（爱语飞飞官网免费注册获取Token）。你可以通过命令行参数传递这些信息：
-```bash
-python main.py --username <你的用户名> --password <你的密码> --check_address <打卡地址> --latitude <纬度> --longitude <经度> --iyuuapi <IYUUAPI>
-```
+The script will automatically run at configured times:
+- Morning: Around 8:25 AM (8:20 - 8:30)
+- Evening: Around 6:10 PM (18:05 - 18:15)
 
-### 4. 运行脚本
-配置好参数后，可以运行脚本：
-```bash
-python main.py --username <你的用户名> --password <你的密码> --check_address <打卡地址> --latitude <纬度> --longitude <经度> --iyuuapi <IYUUAPI>
-```
-### 5. 可在已有服务器上设置定时运行该python脚本
+## Note ⚠️
 
-## 使用GitHub Actions定时运行（推荐）
-
-### 1.Fork本仓库，配置GitHub Secrets
-在Fork的仓库中，配置以下Secrets：
-- `USERNAME`: 你的用户名
-- `PASSWORD`: 你的密码
-- `CHECK_ADDRESS`: 打卡地址
-- `LATITUDE`: 纬度
-- `LONGITUDE`: 经度
-- `IYUUAPI`: 爱语飞飞Token
-
-### 2. 配置GitHub Actions
-在项目根目录下的`.github/workflows/python-app.yml`文件中，已经配置好了GitHub Actions工作流。该工作流会在北京时间每个工作日的08:20和18:10自动运行脚本。
-
-### 3. 手动触发工作流
-你也可以在GitHub Actions页面手动触发工作流。
-
+   ```bash
+   pip install chinesecalender
+   ```
 
 ## Acknowledgements
 
 This project is built upon the work of others:
 - [Emo403/eteams_auto](https://github.com/Emo403/eteams_auto)
 
+## License 📄
 
-## 许可证
-该项目使用MIT许可证，详情请参见LICENSE文件。
+MIT License
