@@ -17,34 +17,7 @@ A Python script for automatic check-in/out on E-Teams platform.可自动跳过�
 
 ## Cron Configuration ⏰
 
-Follow these steps to set up automatic scheduling:
-
-1. Open your crontab configuration:
-   ```bash
-   crontab -e
-   ```
-
-2. Add the following lines (adjust paths according to your setup):
-   ```bash
-   # Morning check-in (8:25 AM ± 5 minutes)
-   25 8 * * * sleep $((RANDOM % 300)) && cd /path/to/project && python auto_checker.py >> /path/to/project/logs/auto_checker.log 2>&1
-   
-   # Evening check-out (6:10 PM ± 5 minutes)
-   10 18 * * * sleep $((RANDOM % 300)) && cd /path/to/project && python auto_checker.py >> /path/to/project/logs/auto_checker.log 2>&1
-   ```
-
-4. Save and exit the editor
-   - For vim: Press `ESC`, then type `:wq`
-   - For nano: Press `Ctrl + X`, then `Y`, then `Enter`
-
-5. Verify your cron jobs:
-   ```bash
-   crontab -l
-   ```
-
-The script will now run automatically at specified times.
-
-Note: Ensure the path `/path/to/project` is replaced with your actual project directory path.
+运行config_cron脚本
 
 ## Usage 📝
 
@@ -53,9 +26,14 @@ The script will automatically run at configured times:
 - Evening: Around 6:10 PM (18:05 - 18:15)
 
 ## Note ⚠️
-需要手动安装chinesecalender
+修改config.yaml中的内容
    ```bash
-   pip install chinesecalender
+   apt install python3-venv
+   apt install python3-pip
+   python3 -m venv .venv  # 在当前目录下创建名为 .venv 的虚拟环境，.venv 是常见的虚拟环境目录名
+   source .venv/bin/activate  # 或 .venv\Scripts\activate 在 Windows 上
+   #激活虚拟环境后，安装如下内容
+   pip install -r requirements.txt
    ```
 
 ## Acknowledgements

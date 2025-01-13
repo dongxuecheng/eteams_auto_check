@@ -5,6 +5,8 @@ import requests
 import logging
 import yaml
 import os
+import random
+import time
 from dataclasses import dataclass
 from clock_in_out import ClockInSystem
 
@@ -80,6 +82,12 @@ class HolidayChecker:
             logging.info(f"Holiday detected: {status.holiday_name}")
         else:
             try:
+                delay = random.randint(0, 300)  # 0-300s random delay
+                time.sleep(delay)
+
+                now = datetime.datetime.now()
+                logging.info(f"[{now}] Starting attendance, delayed by {delay} seconds...")
+
                 clock_system = ClockInSystem()
                 clock_system.execute()
                 message = (
