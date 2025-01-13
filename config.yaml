@@ -1,0 +1,19 @@
+#please fill in the following information of your own!
+credentials:
+  username: "xxxx"
+  password: "xxxx"
+
+location:
+  check_address: "xx市xx"
+  latitude: "xx.xxxx"
+  longitude: "xx.xxxx"
+
+telegram:
+  bot_token: "xxx:xxx"
+  chat_id: "xxxx"
+
+urls:
+  login: "https://passport.eteams.cn/papi/passport/login/appLogin"
+  check: "https://weapp.eteams.cn/api/app/attend/web/sign/getAttendStatus"
+  attend: "https://weapp.eteams.cn/api/app/attend/web/sign/sign"
+  signature: "https://weapp.eteams.cn/papi/app/eb/open/wxcard"
