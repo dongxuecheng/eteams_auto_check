@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Project configuration
-PROJECT_PATH=“$1”  #read project path from command line
+PROJECT_PATH="$1"  #read project path from command line
 VENV_PATH="${PROJECT_PATH}/.venv"
 LOG_PATH="${PROJECT_PATH}/logs"
 
