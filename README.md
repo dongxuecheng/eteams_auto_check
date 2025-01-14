@@ -22,6 +22,11 @@ A Python script for automatic check-in/out on E-Teams platform.可自动跳过�
 chmod +x config_cron.sh && ./config_cron.sh
 ```
 
+运行test.sh脚本
+```bash
+chmod +x test.sh && ./test.sh
+```
+
 ## Usage 📝
 
 The script will automatically run at configured times:
