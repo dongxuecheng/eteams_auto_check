@@ -16,22 +16,21 @@ A Python script for automatic check-in/out on E-Teams platform.可自动跳过�
 4. Set up cron jobs
 
 ## Cron Configuration ⏰
-
+设置系统时区为上海
+```bash
+timedatectl set-timezone Asia/Shanghai
+```
 运行config_cron脚本
 ```bash
-chmod +x config_cron.sh && ./config_cron.sh
+chmod +x config_cron.sh && ./config_cron.sh /home/eteams_auto_check
 ```
 
-运行test.sh脚本
-```bash
-chmod +x test.sh && ./test.sh
-```
 
 ## Usage 📝
 
 The script will automatically run at configured times:
-- Morning: Around 8:25 AM (8:20 - 8:30)
-- Evening: Around 6:10 PM (18:05 - 18:15)
+- Morning: Around 8:20 AM (8:20 - 8:25)
+- Evening: Around 6:10 PM (18:10 - 18:15)
 
 ## Note ⚠️
 修改config.yaml中的内容

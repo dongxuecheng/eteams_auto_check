@@ -29,9 +29,16 @@ class ClockInSystem:
 
     def _configure_logging(self) -> None:
         """Configure logging settings."""
+        if not os.path.exists('logs'):
+            os.makedirs('logs')
+
         logging.basicConfig(
             level=logging.INFO,
-            format='%(asctime)s - %(levelname)s - %(message)s'
+            format='%(asctime)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.FileHandler('logs/auto_checker.log'),
+                logging.StreamHandler()
+            ]
         )
 
     def push_notification(self) -> None:
