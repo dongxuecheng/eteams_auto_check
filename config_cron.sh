@@ -23,10 +23,10 @@ mkdir -p "$LOG_PATH"
 # Build cron configuration with virtual environment activation
 CRON_CONFIG=$(cat << EOF
 # Morning check-in (8:25 AM)
-TZ=Asia/Shanghai 25 8 * * * cd "${PROJECT_PATH}" && source ${VENV_PATH}/bin/activate && python3 auto_checker.py >> "${LOG_PATH}/auto_checker.log" 2>&1
+TZ=Asia/Shanghai 25 8 * * * cd "${PROJECT_PATH}" && ${VENV_PATH}/bin/python3 auto_checker.py >> "${LOG_PATH}/auto_checker.log" 2>&1
 
 # Evening check-out (6:10 PM)
-TZ=Asia/Shanghai 10 18 * * * cd "${PROJECT_PATH}" && source ${VENV_PATH}/bin/activate && python3 auto_checker.py >> "${LOG_PATH}/auto_checker.log" 2>&1
+TZ=Asia/Shanghai 10 18 * * * cd "${PROJECT_PATH}" && ${VENV_PATH}/bin/python3 auto_checker.py >> "${LOG_PATH}/auto_checker.log" 2>&1
 EOF
 )
 
