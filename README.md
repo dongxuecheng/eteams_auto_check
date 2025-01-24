@@ -48,6 +48,13 @@ The script will automatically run at the configured times:
 - **Morning:** Around 8:20 AM (8:20 - 8:25)
 - **Evening:** Around 6:10 PM (18:10 - 18:15)
 
+## 删除定时任务
+ ```bash
+crontab -e
+ ```
+找到要删除的定时任务行，直接删除该行。
+保存并退出编辑器（通常是 :wq 退出 vim 或 Ctrl+O，然后 Ctrl+X 退出 nano）
+
 ## Acknowledgements 🙏
 
 This project is built upon the work of others:
