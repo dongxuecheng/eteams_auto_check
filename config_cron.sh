@@ -21,10 +21,10 @@ fi
 # Build cron configuration with virtual environment activation
 CRON_CONFIG=$(cat << EOF
 # Morning check-in (8:20 AM)
-20 8 * * * cd "${PROJECT_PATH}" && ${VENV_PATH}/bin/python3 auto_checker.py
+24 8 * * * cd "${PROJECT_PATH}" && ${VENV_PATH}/bin/python3 auto_checker.py
 
 # Evening check-out (6:10 PM)
-10 18 * * * cd "${PROJECT_PATH}" && ${VENV_PATH}/bin/python3 auto_checker.py
+12 18 * * * cd "${PROJECT_PATH}" && ${VENV_PATH}/bin/python3 auto_checker.py
 EOF
 )
 
