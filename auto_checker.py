@@ -83,7 +83,7 @@ class HolidayChecker:
         if status.is_holiday:
             message = (
                 f"📅 Date: {status.date}\n"
-                f"🏖 Holiday: {status.holiday_name}\n"
+                f"🏖 Holiday\n"
                 "✨ No attendance needed today!"
             )
             logging.info(f"Holiday detected: {status.holiday_name}")
