@@ -4,6 +4,9 @@
 ## 项目简介
 该项目用于泛微eteams打卡，支持自定义位置经纬度，支持通过GitHub Actions定时运行，并通过爱语飞飞微信推送打卡结果。
 
+### 服务器部署版本
+若有空余服务器/VPS可以使用该分支，支持自动跳过法定节假日[服务器部署版本](https://github.com/dongxuecheng/eteams_auto_check/tree/vps-deploy)
+
 ## 使用教程
 
 ### 1. 克隆项目
