@@ -47,7 +47,18 @@ python main.py --username <你的用户名> --password <你的密码> --check_ad
 - `IYUUAPI`: 爱语飞飞Token
 
 ### 2. 配置GitHub Actions
-在项目根目录下的`.github/workflows/python-app.yml`文件中，已经配置好了GitHub Actions工作流。该工作流会在北京时间每个工作日的08:20和18:10自动运行脚本。
+在项目根目录下的`.github/workflows/python-app.yml`文件中，已经配置好了GitHub Actions工作流。取消该文件里的注释，该工作流会在北京时间每个工作日的07:45和18:10自动运行脚本。
+注意，GitHub Action 早上打卡可能会有延迟
+```bash
+name: Python application
+
+on:
+  # 定时打卡功能，如需定时打卡运行，取消下面注释
+  # schedule:
+  #   - cron: '45 23 * * 0-4' #北京时间 07:45 → UTC 时间 23:45,utc时间周日到周四，加8北京时间周一到周五
+  #   - cron: '10 10 * * 1-5'
+  workflow_dispatch:  # 允许手动触发工作流
+```
 
 ### 3. 手动触发工作流
 你也可以在GitHub Actions页面手动触发工作流。
